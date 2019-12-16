@@ -58,3 +58,13 @@ class CappedFactory(capacity: Int) extends IterableFactory[Capped] {
     }
   }
 }
+
+object CappedApp extends App {
+  object Capped extends CappedFactory(capacity = 4)
+  val capped = Capped(1,2,3,5)
+  println(capped)
+  println(capped.take(2))
+  val capped2 = capped :+ 11
+  println(capped2)
+  println(capped2 :+ 99)
+}
